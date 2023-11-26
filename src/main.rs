@@ -1,20 +1,25 @@
 pub mod todolist;
 
 fn main() {
-    let mut todolist1 = todolist::Todolist {todos: Vec::new() };
-    
-    let mut todo1 = todolist::Todo {text: String::from("Test"), done: false, };
+    let todo1 = todolist::Todo {
+        text: String::from("This is todo1"),
+        done: false,
+    };
 
-    let mut todo2 = todolist::Todo {text: String::from("Test2"), done: false, };
-    
-    todolist1.add(&mut todo1);
-    println!("{:?}", todolist1);
+    println!("{:?}", todo1);
 
-    todolist1.add(& todo2);
-    println!("{:?}", todolist1);
+    let mut todolist1 = todolist::Todolist {
+        list: Vec::new(),
+    };
+   
+    println!("{:?}", todolist1.list);
 
-    todo2.mark_done();
-    println!("{:?}", todolist1);
+    todolist1.add_todo(todo1);
 
-    
+    println!("{:?}", todolist1.list);
+
+    todolist1.list[0].mark_done();
+
+    println!("{:?}", todolist1.list);
+
 }

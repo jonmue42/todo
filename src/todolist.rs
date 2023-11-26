@@ -1,8 +1,3 @@
-pub fn show_todos(status: &Todo) {
-    println!("todo list");
-    println!("Status {}", status.done);
-}
-
 // struct for the individual Todos
 #[derive(Debug)]
 pub struct Todo {
@@ -18,16 +13,13 @@ impl Todo {
 
 // struct for todolist consisting of only vec of Todo structs
 #[derive(Debug)]
-pub struct Todolist<'a> { 
-    pub todos: Vec<&'a Todo>, 
+pub struct Todolist { 
+    pub list: Vec<Todo>
 }
 
-impl<'a> Todolist<'a> {
-    pub fn add(&mut self, todo: &'a Todo) {
-       self.todos.push(todo);
-    }
-
-    pub fn mark_done(&mut self, elem: usize) {
-       self.todos[elem].mark_done();
+impl Todolist {
+    pub fn add_todo(&mut self, new_todo: Todo) {
+        self.list.push(new_todo);
     }
 }
+
