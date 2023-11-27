@@ -1,4 +1,5 @@
 pub mod todolist;
+pub mod tui;
 
 fn main() {
     let todo1 = todolist::Todo {
@@ -21,5 +22,7 @@ fn main() {
     todolist1.list[0].mark_done();
 
     println!("{:?}", todolist1.list);
+
+    tui::start_tui();
 
 }
